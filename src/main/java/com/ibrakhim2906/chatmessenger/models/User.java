@@ -33,4 +33,8 @@ public class User {
     @Column(nullable = false)
     private Instant createdAt;
 
+    @PrePersist
+    private void prePersist() {
+        this.createdAt=Instant.now();
+    }
 }
